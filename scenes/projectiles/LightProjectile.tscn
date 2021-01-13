@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/dagger-projectile-v2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/projectiles/LightProjectile.gd" type="Script" id=2]
+
+[node name="LghtProjectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 20
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 4.84917, -0.0554123, -0.0313339, -19.3897, -4.80756, -0.0554123 )
+[connection signal="area_entered" from="." to="." method="_on_LghtProjectile_area_entered"]
