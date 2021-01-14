@@ -2,7 +2,7 @@ extends Area2D
 
 signal takes_damage(damage)
 
-const SPEED = 3
+const SPEED = 6
 const SMOOTH = 10
 
 var is_free = false

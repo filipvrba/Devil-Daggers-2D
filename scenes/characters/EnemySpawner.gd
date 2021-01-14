@@ -7,6 +7,7 @@ const SMOOTH = 5
 
 export var health = 6
 export var spawn_skull_type = "medium"
+export var skull_count = 9
 
 var is_move = true
 
@@ -57,8 +58,8 @@ func _on_Crystal_takes_damage(damage) -> void:
 func _on_SpawnTimer_timeout() -> void:
 	get_tree().call_group("enemies", "spawn_skull_" + spawn_skull_type,
 			global_position)
-	for _index in range(4):
-		yield(get_tree().create_timer(0.2), "timeout")
+	for _index in range(skull_count):
+		yield(get_tree().create_timer(0.1), "timeout")
 		get_tree().call_group("enemies", "spawn_skull", global_position)
 
 

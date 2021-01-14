@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 func remove_behind_screen():
 	var screen = get_viewport_rect().size
-	var magnitude = 10
+	var magnitude = 60
 	
 	if position.x < -magnitude:
 		queue_free()

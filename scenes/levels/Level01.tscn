@@ -1,19 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/Projectiles.gd" type="Script" id=3]
 [ext_resource path="res://scenes/levels/Crystals.gd" type="Script" id=4]
 [ext_resource path="res://scenes/levels/Enemies.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://shaders/Crystal.shader" type="Shader" id=7]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 7 )
-shader_param/active = false
-shader_param/color = Color( 0.898039, 0.94902, 0.0313726, 1 )
+[ext_resource path="res://scenes/levels/Level01.gd" type="Script" id=8]
 
 [node name="Level01" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Crystals" type="Node" parent="." groups=[
 "crystals",
@@ -34,11 +29,3 @@ script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 388.909, 390.323 )
-
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite" type="Sprite" parent="Node2D"]
-material = SubResource( 1 )
-position = Vector2( 726.022, 307.797 )
-texture = ExtResource( 6 )

@@ -126,7 +126,7 @@ anims/die = SubResource( 3 )
 anims/idle = SubResource( 4 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 20.0
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

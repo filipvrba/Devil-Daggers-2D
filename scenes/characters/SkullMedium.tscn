@@ -154,7 +154,7 @@ tracks/1/keys = {
 
 [node name="SkullMedium" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-health = 20
+health = 4
 is_dropping_crystal = true
 
 [node name="Sprite" parent="." index="0"]
