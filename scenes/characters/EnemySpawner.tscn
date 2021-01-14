@@ -68,18 +68,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true, false ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Light2D:energy")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 2.0, 0.0 ]
-}
 
 [sub_resource type="Animation" id=4]
 length = 17.0
@@ -108,18 +96,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.5 ]
 }
 
 [sub_resource type="CircleShape2D" id=5]
@@ -162,11 +138,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 5 )
-
-[node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 1 )
-texture_scale = 0.2
-energy = 0.5
 [connection signal="takes_damage" from="Crystal" to="." method="_on_Crystal_takes_damage"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

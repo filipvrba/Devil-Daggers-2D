@@ -71,18 +71,6 @@ tracks/3/keys = {
 "method": "set_disabled"
 } ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Light2D:energy")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2.0 ]
-}
 
 [sub_resource type="Animation" id=5]
 resource_name = "idle"
@@ -110,18 +98,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.6, 0.6 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.5 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -153,18 +129,6 @@ tracks/1/keys = {
 "method": "play"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.5 ]
-}
 
 [node name="Skull" type="KinematicBody2D"]
 collision_layer = 4
@@ -194,11 +158,6 @@ autoplay = "spawn"
 anims/die = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/spawn = SubResource( 6 )
-
-[node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 1 )
-texture_scale = 0.6
-energy = 0.5
 
 [node name="SlowSpeed" type="Timer" parent="."]
 wait_time = 0.2
