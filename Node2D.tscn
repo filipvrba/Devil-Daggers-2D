@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/levels/Arena.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ -437.535 ]
+}
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 381.637, 359.188 )
+
+[node name="Arena" parent="." instance=ExtResource( 1 )]
+visible = false

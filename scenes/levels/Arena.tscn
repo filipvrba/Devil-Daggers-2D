@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/arena_bg.png" type="Texture" id=1]
 [ext_resource path="res://scenes/levels/Arena.gd" type="Script" id=2]
+[ext_resource path="res://scenes/levels/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/light_v2.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -62,10 +64,13 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.75, 0.75 )
 z_index = -100
 texture = ExtResource( 1 )
 centered = false
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
 
 [node name="PathPositions" type="Node" parent="."]
 
@@ -130,4 +135,15 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/run_enemies_path = SubResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 384, 384 )
+scale = Vector2( 0.875, 0.875 )
+texture = ExtResource( 4 )
+color = Color( 0.8, 0.709804, 0.423529, 1 )
+energy = 1.5
+mode = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.219608, 0.219608, 0.219608, 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

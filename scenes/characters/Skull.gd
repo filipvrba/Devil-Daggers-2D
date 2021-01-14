@@ -9,6 +9,7 @@ var parent: Node2D
 var _direction = Vector2.ZERO
 var _velocity = Vector2.ZERO
 var _path_follow: Node2D
+var _is_slow = false
 
 
 func _ready() -> void:
@@ -20,17 +21,24 @@ func _ready() -> void:
 		parent = _path_follow
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not parent:
 		parent = _path_follow
-
-
-func _physics_process(delta: float) -> void:
+	
 	_direction = parent.position - position
 	_direction = _direction.normalized()
 	
-	_velocity = _direction * speed
+	if _is_slow:
+		_velocity = _direction * (speed / 2)
+		if $SlowSpeed.is_stopped():
+			$SlowSpeed.start()
+	else:
+		_velocity = _direction * speed
 	_velocity = move_and_slide(_velocity)
+
+
+func _on_SlowSpeed_timeout() -> void:
+	_is_slow = false
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
@@ -46,6 +54,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 			dropping_crystal()
 		else:
 			$AnimationPlayer.play("blink")
+			_is_slow = true
 
 
 func dropping_crystal():

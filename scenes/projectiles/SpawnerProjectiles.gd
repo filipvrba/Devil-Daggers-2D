@@ -31,3 +31,4 @@ func shoot():
 func double_shoot():
 	get_tree().call_group("projectiles", "create_projectiles", get_parent())
 	get_tree().call_group("shooting", "double_shoot")
+	get_parent().get_node("AnimationPlayer").play("double_shoot")

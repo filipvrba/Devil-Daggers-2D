@@ -8,7 +8,7 @@
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/active = false
-shader_param/color = Color( 0.905882, 0.572549, 0.0509804, 1 )
+shader_param/color = Color( 1, 0.984314, 0, 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "blink"
@@ -24,6 +24,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 0.5 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -75,5 +87,10 @@ polygon = PoolVector2Array( 0.0279512, -8.97961, 9.02133, -0.0233994, -0.0835371
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/blink = SubResource( 2 )
 anims/small = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 0.3
+energy = 0.5
 [connection signal="area_entered" from="." to="." method="_on_Crystal_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Crystal_body_entered"]
