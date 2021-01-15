@@ -1,0 +1,496 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/spider.png" type="Texture" id=1]
+[ext_resource path="res://scenes/score/Crystal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/characters/Spider.gd" type="Script" id=3]
+[ext_resource path="res://materials/spider.material" type="Material" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 89.1562
+
+[sub_resource type="Animation" id=2]
+resource_name = "die"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/path = NodePath("CollisionShape2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_disabled"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/leg-l:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.08734, -68.1937 ), Vector2( -81.2511, -41.2079 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/leg-l2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14.0172, -62.621 ), Vector2( -89.1639, -20.5549 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/leg-r:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6152, 43.5292 ), Vector2( -100.265, 18.9245 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/leg-r2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -26.7957, 50.3042 ), Vector2( -95.8477, 21.731 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("ProtectionTimer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Body:material:shader_param/active")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/leg-r:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 0.554784, 1 ),
+"update": 0,
+"values": [ -2.69353, -6.27376, -2.69353 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/leg-r:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6152, 43.5292 ), Vector2( -2.20282, 43.5292 ), Vector2( 15.6152, 43.5292 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/leg-r2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 0.554785, 1 ),
+"update": 0,
+"values": [ -4.27237, 8.78367, -4.27237 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/leg-r2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -26.7957, 50.3042 ), Vector2( -1.85053, 57.4314 ), Vector2( -26.7957, 50.3042 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/leg-l2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 0.406126, 1 ),
+"update": 0,
+"values": [ 5.74425, 16.5084, 5.74425 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/leg-l2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14.0172, -62.621 ), Vector2( -5.58262, -50.1484 ), Vector2( 14.0172, -62.621 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/leg-l:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.08734, -68.1937 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Body/leg-l:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ 19.2019, -8.27569, 19.2019 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Crystal:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 117.731, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CollisionShape2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 29.905, 2.133 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Body:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Body:material:shader_param/active")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1 ), Vector2( 0.8, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/leg-l:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.08734, -68.1937 ), Vector2( -95.3795, -20.5179 ), Vector2( -95.3795, -20.5179 ), Vector2( -1.08734, -68.1937 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/leg-l2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14.0172, -62.621 ), Vector2( -94.0481, -13.8857 ), Vector2( -94.0481, -13.8857 ), Vector2( 14.0172, -62.621 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/leg-r:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6152, 43.5292 ), Vector2( -95.6284, 17.0426 ), Vector2( -95.6284, 17.0426 ), Vector2( 15.6152, 43.5292 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/leg-r2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -26.7957, 50.3042 ), Vector2( -96.7203, 26.996 ), Vector2( -96.7203, 26.996 ), Vector2( -26.7957, 50.3042 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Crystal:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 117.731, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 117.731, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 29.905, 2.133 ), Vector2( 0, 2.133 ), Vector2( 0, 2.133 ), Vector2( 29.905, 2.133 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("AnimationPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Crystal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 117.731, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[node name="Spider" type="Area2D"]
+collision_layer = 36
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Crystal" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117.731, 0 )
+scale = Vector2( 2, 2 )
+
+[node name="Body" type="Sprite" parent="."]
+material = ExtResource( 4 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="leg-l" type="Sprite" parent="Body"]
+material = ExtResource( 4 )
+position = Vector2( -1.08734, -68.1937 )
+rotation = 0.335136
+texture = ExtResource( 1 )
+offset = Vector2( 96.67, -18.316 )
+vframes = 3
+hframes = 2
+frame = 1
+
+[node name="leg-l2" type="Sprite" parent="Body"]
+material = ExtResource( 4 )
+position = Vector2( 14.0172, -62.621 )
+rotation = 0.100256
+texture = ExtResource( 1 )
+offset = Vector2( 96.67, -18.316 )
+vframes = 3
+hframes = 2
+frame = 1
+
+[node name="leg-r" type="Sprite" parent="Body"]
+material = ExtResource( 4 )
+position = Vector2( 15.6152, 43.5292 )
+rotation = -0.047011
+scale = Vector2( 1, -1 )
+texture = ExtResource( 1 )
+offset = Vector2( 96.67, -18.316 )
+vframes = 3
+hframes = 2
+frame = 1
+
+[node name="leg-r2" type="Sprite" parent="Body"]
+material = ExtResource( 4 )
+position = Vector2( -26.7957, 50.3042 )
+rotation = -0.0745669
+scale = Vector2( 1, -1 )
+texture = ExtResource( 1 )
+offset = Vector2( 96.67, -18.316 )
+vframes = 3
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 29.905, 2.133 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
+anims/die = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/protection = SubResource( 4 )
+anims/spawn = SubResource( 5 )
+
+[node name="ProtectionTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="area_entered" from="." to="." method="_on_Spider_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Spider_body_entered"]
+[connection signal="area_entered" from="Crystal" to="." method="_on_Spider_area_entered"]
+[connection signal="takes_damage" from="Crystal" to="." method="_on_Crystal_takes_damage"]
+[connection signal="timeout" from="ProtectionTimer" to="." method="_on_ProtectionTimer_timeout"]

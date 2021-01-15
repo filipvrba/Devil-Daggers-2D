@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 PlayerVariables="*res://scripts/PlayerVariables.gd"
 Global="*res://scripts/Global.gd"
+PauseMenu="*res://scenes/interfaces/PauseMenu.tscn"
 
 [display]
 

@@ -24,7 +24,7 @@ func _ready() -> void:
 	_direction = _center_screen - position
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _center_screen.distance_to(position) < Global.size_area:
 		if _speed != SPEED:
 			_speed = SPEED
@@ -36,12 +36,11 @@ func _physics_process(delta: float) -> void:
 	_velocity = _velocity.move_toward(_direction * _speed, SMOOTH)
 	
 	if _center_screen.distance_to(position) > MIDDLE_RADIUS:
-		move_and_slide(_velocity)
+		_velocity = move_and_slide(_velocity)
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	if body is Player:
-		get_tree().call_group("game_over", "game_over")
+	Global.is_game_over(body)
 
 
 func game_over():
@@ -59,10 +58,10 @@ func _on_SpawnTimer_timeout() -> void:
 	get_tree().call_group("enemies", "spawn_skull_" + spawn_skull_type,
 			global_position)
 	for _index in range(skull_count):
-		yield(get_tree().create_timer(0.1), "timeout")
+		var _time = yield(get_tree().create_timer(0.1), "timeout")
 		get_tree().call_group("enemies", "spawn_skull", global_position)
 
 
 func _spawn_enemies():
-	yield(get_tree().create_timer(1), "timeout")
+	var _time = yield(get_tree().create_timer(1), "timeout")
 	_on_SpawnTimer_timeout()

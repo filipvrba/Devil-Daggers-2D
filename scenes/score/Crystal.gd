@@ -3,15 +3,16 @@ extends Area2D
 signal takes_damage(damage)
 
 const SPEED = 6
-const SMOOTH = 10
+const SMOOTH = 18
+
 
 var is_free = false
 var parent: Node2D
+var health = 6
 
 var _direction = Vector2.ZERO
 var _velocity = Vector2.ZERO
 var _is_stoped = false
-var _health = 6
 
 
 func _physics_process(delta: float) -> void:
@@ -21,14 +22,14 @@ func _physics_process(delta: float) -> void:
 		position += _velocity
 
 
-func reparent(node: Node2D, parent):
+func reparent(node: Node2D, parent_node):
 	var glob_position = node.global_position
 	var glob_rotation = node.global_rotation
 	
 	node.get_parent().remove_child(node)
 	node.position = glob_position
 	node.rotation = glob_rotation
-	parent.add_child(node)
+	parent_node.add_child(node)
 
 
 func shoot(is_active):
@@ -49,7 +50,7 @@ func double_shoot():
 	var direction_fix = Vector2(clamp(_direction.x, -1, 1),
 			clamp(_direction.y, -1, 1))
 	var size = get_viewport_rect().size / 2
-	_velocity = -(direction_fix * SPEED)
+	_velocity = -(direction_fix * (SPEED / 2))
 	
 	if (_velocity + position).distance_to(size) > Global.size_area - 30:
 		_velocity = direction_fix
@@ -68,8 +69,8 @@ func _on_Crystal_area_entered(area: Area2D) -> void:
 	if area is LightProjectile:
 		if not is_free:
 			$AnimationPlayer.play("blink")
-			_health -= area.DAMAGE
-			if _health < 0:
+			health -= area.DAMAGE
+			if health < 0:
 				release()
 			
 			emit_signal("takes_damage", area.DAMAGE)

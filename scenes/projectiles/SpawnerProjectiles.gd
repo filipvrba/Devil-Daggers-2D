@@ -15,11 +15,11 @@ func _input(event: InputEvent) -> void:
 			double_shoot()
 			
 		if event.is_action_pressed("shooting"):
-			yield(get_tree(), "idle_frame")
+			var _idle = yield(get_tree(), "idle_frame")
 			interval_shooting.start()
 			get_tree().call_group("shooting", "shoot", true)
 		elif event.is_action_released("shooting"):
-			yield(get_tree(), "idle_frame")
+			var _idle = yield(get_tree(), "idle_frame")
 			interval_shooting.stop()
 			get_tree().call_group("shooting", "shoot", false)
 

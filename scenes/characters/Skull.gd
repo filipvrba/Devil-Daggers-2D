@@ -21,7 +21,7 @@ func _ready() -> void:
 		parent = _path_follow
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not parent:
 		parent = _path_follow
 	
@@ -42,8 +42,7 @@ func _on_SlowSpeed_timeout() -> void:
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	if body is Player:
-		get_tree().call_group("game_over", "game_over")
+	Global.is_game_over(body)
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:

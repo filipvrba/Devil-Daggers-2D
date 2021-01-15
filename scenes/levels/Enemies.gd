@@ -5,6 +5,7 @@ var _skull_medium = preload("res://scenes/characters/SkullMedium.tscn")
 var _skull_hard = preload("res://scenes/characters/SkullHard.tscn")
 var _enemy_spawner = preload("res://scenes/characters/EnemySpawner.tscn")
 var _enemy_spawner_medium = preload("res://scenes/characters/EnemySpawnerMedium.tscn")
+var _spider_spawner = preload("res://scenes/characters/Spider.tscn")
 
 
 func _ready() -> void:
@@ -45,3 +46,9 @@ func spawn_skull_hard(position: Vector2):
 			position.y + rand_range(-20, 20))
 	skull_hard_node.position = random_position
 	add_child(skull_hard_node)
+
+
+func create_spider(position: Vector2):
+	var spider = _spider_spawner.instance()
+	spider.position = position
+	add_child(spider)
