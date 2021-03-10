@@ -1,4 +1,4 @@
-# Devil-Daggers-2D
+# Devil Daggers 2D
 
 Easy top-down action survival game, where in the area must survive a player.
 An light daggers shooting help, you can destroy a enemies, where spawning on the area edge.
